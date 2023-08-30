@@ -5,6 +5,7 @@ const Actions = preload('../Actions.gd')
 var _current_command
 
 func _ready():
+	self.grab_focus()
 	# Console keyboard control
 	self.set_process_input(true)
 
