@@ -8,11 +8,28 @@ onready var console_input_node = $ConsoleInput
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.write_line("Welcome InGame Terminal \nType [color=#ffff66] [url=help]help[/url][/color] to get more information")
 	resize()
 
 func _process(delta):
 	resize()
 
+# append string
+func write(message):
+	message = str(message)
+	if self.text_node:
+		self.text_node.append_bbcode(message)
+
+# print new line
+func write_line(message = ''):
+	message = str(message)
+	if self.text_node:
+		self.text_node.append_bbcode(message + '\n')
+	
+# clear terminal
+func clear():
+	if self.text_node:
+		self.text_node.clear()	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -23,6 +40,8 @@ func resize():
 	if box.get_rect().size.y < height:
 		height = box.size_flags_vertical + box.get_parent().offset.y + 75
 		#print(height)
-	console_input_node.set_position(Vector2(0,height-25))
+	console_input_node.set_position(Vector2(0,height-15))
 	#text_node.rect_min_size.y = height
 	#text_node.rect_max_size.y = height
+
+
