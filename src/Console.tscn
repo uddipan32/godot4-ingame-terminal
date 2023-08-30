@@ -1,39 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://addons/godot3-ingame-terminal/src/Console.gd" type="Script" id=1]
-
-[sub_resource type="Animation" id=1]
-length = 0.25
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath("Container/ConsoleLine")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "clear"
-}, {
-"args": [  ],
-"method": "clear"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
+[ext_resource path="res://addons/godot3-ingame-terminal/src/ConsoleInput.gd" type="Script" id=2]
+[ext_resource path="res://addons/godot3-ingame-terminal/src/Container.gd" type="Script" id=3]
 
 [node name="Console" type="CanvasLayer"]
 pause_mode = 2
@@ -50,13 +19,11 @@ margin_top = -27.058
 margin_bottom = -27.058
 mouse_filter = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ConsoleBox"]
-anims/fade = SubResource( 1 )
-
 [node name="Container" type="VBoxContainer" parent="ConsoleBox"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( 3 )
 
 [node name="ConsoleText" type="RichTextLabel" parent="ConsoleBox/Container"]
 margin_right = 1024.0
@@ -66,7 +33,7 @@ size_flags_vertical = 3
 custom_constants/line_separation = 4
 bbcode_enabled = true
 
-[node name="ConsoleLine" type="LineEdit" parent="ConsoleBox/Container"]
+[node name="ConsoleInput" type="LineEdit" parent="ConsoleBox/Container"]
 margin_top = 276.0
 margin_right = 1024.0
 margin_bottom = 300.0
@@ -77,3 +44,4 @@ focus_neighbour_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 size_flags_horizontal = 3
+script = ExtResource( 2 )
