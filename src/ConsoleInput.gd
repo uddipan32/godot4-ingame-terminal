@@ -65,5 +65,5 @@ func _input(e):
 
 
 func execute(input):
-	$"..".write_line('[color=#999999]$[/color] ' + input)
+	#$"..".write_line('[color=#999999]$[/color] ' + input)
 	self.clear()

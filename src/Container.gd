@@ -48,6 +48,7 @@ func resize():
 
 
 func _on_ConsoleInput_text_entered(input):
+	self.write_line('[color=#999999]$[/color] ' + input)
 	var handler = command_handler.new()
 	self.write(handler.validate_command(input))
 	#self.write_line(new_text)
