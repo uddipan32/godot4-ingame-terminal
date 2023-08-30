@@ -42,6 +42,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/line_separation = 4
 bbcode_enabled = true
+scroll_following = true
 
 [node name="ConsoleInput" type="LineEdit" parent="ConsoleBox/Container"]
 margin_top = 274.0

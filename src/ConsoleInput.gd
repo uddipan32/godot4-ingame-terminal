@@ -64,3 +64,6 @@ func _input(e):
 		self._current_command = null
 
 
+func execute(input):
+	$"..".write_line('[color=#999999]$[/color] ' + input)
+	self.clear()

@@ -5,7 +5,7 @@ onready var console_input_node = $ConsoleInput
 # var a = 2
 # var b = "text"
 
-
+const command_handler = preload("./CommandHandler.gd")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.write_line("Welcome InGame Terminal \nType [color=#ffff66] [url=help]help[/url][/color] to get more information")
@@ -47,5 +47,7 @@ func resize():
 
 
 
-func _on_ConsoleInput_text_entered(new_text):
-	self.write_line(new_text)
+func _on_ConsoleInput_text_entered(input):
+	var handler = command_handler.new()
+	self.write(handler.validate_command(input))
+	#self.write_line(new_text)
