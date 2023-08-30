@@ -1,29 +1,41 @@
 class_name CommandHandler
 extends Reference
 
-var command_list = ["ipconfig", "aa", "a1"]
-var command_json = {"ipconfig":"Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.15.0-1036-lws x86_64)\n\n" + \
-" * Documentation:  https://help.ubuntu.com\n" + \
-" * Management:     https://landscape.canonical.com\n" + \
-" * Support:        https://ubuntu.com/advantage\n\n" + \
-"  System information as of Wed Aug 30 09:21:28 UTC 2023\n\n" + \
-"  System load:  0.0               Processes:             108\n" + \
-"  Usage of /:   44.0% of 7.57GB   Users logged in:       0\n" + \
-"  Memory usage: 45%               IPv4 address for eth0: 111.21.44.208\n" + \
-"  Swap usage:   0%\n\n" + \
-"* Ubuntu Pro delivers the most comprehensive open source security and\n" + \
-"  compliance features.\n\n" + \
-"  https://ubuntu.com/aws/pro\n\n" + \
-"Expanded Security Maintenance for Applications is not enabled.\n\n" + \
-"47 updates can be applied immediately.\n" + \
-"To see these additional updates run: apt list --upgradable\n\n" + \
-"8 additional security updates can be applied with ESM Apps.\n" + \
-"Learn more about enabling ESM Apps service at https://ubuntu.com/esm\n\n" + \
-"*** System restart required ***\nLast login: Wed Jun 14 19:14:15 2023 from 10.216.17.208\nubuntu@ip-111-21-44-208:~$ ipconfig\n\n" + \
-"Command 'ipconfig' not found, did you mean:\n\n  command 'ifconfig' from deb net-tools (1.60+git20181626.aebd88e-1ubuntu1)\n  command 'iconfig' from deb ipmiutil (3.1.5-1)\n" + \
-"  command 'iwconfig' from deb wireless-tools (30~pre9-13ubuntu1)\n\nTry: sudo apt install <deb name>",
-					"aa":"2nd command in list",
-					"a1":"Last command"}
+var command_list = ["ifconfig", "ls", "pwd"]
+var command_json = {
+					"ls":"Desktop \t Documents \t Downloads \t Public \t Videos",
+					"pwd":"/home/ubuntu",
+					"ifconfig":  "cali8a6670e8646: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500 \n" +  \
+		 "\t\tinet6 fe80::fcee:efff:feee:eeee  prefixlen 64  scopeid 0x20<link> \n" + \
+		"\t\tether ee:ee:ee:ee:ee:ee  txqueuelen 0  (Ethernet) \n" + \
+		"\t\tRX packets 913628  bytes 79389183 (79.3 MB)\n" + \
+		"\t\tRX errors 0  dropped 1  overruns 0  frame 0\n" + \
+		"\t\tTX packets 892112  bytes 386799798 (386.7 MB)\n" + \
+		"\t\tTX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 \n\n" + \
+"enp14s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500  \n" + \
+		"\t\tinet 10.0.0.3  netmask 255.255.255.0  broadcast 10.0.0.255\n" + \
+		"\t\tinet6 fe50::2e07:51ff:fe1d:65e2  prefixlen 64  scopeid 0x20<link>\n" + \
+		"\t\tether 3c:07:71:1d:61:e1  txqueuelen 1000  (Ethernet)\n" + \
+		"\t\tRX packets 723899078  bytes 1144145964128 (1.1 TB)\n" + \
+		"\t\tRX errors 0  dropped 3558  overruns 0  frame 0\n" + \
+		"\t\tTX packets 213817352  bytes 16132104645 (16.1 GB)\n" + \
+		"\t\tTX errors 1  dropped 0 overruns 0  carrier 0  collisions 0\n\n" + \
+"lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536\n" + \
+		"\t\tinet 127.0.0.1  netmask 255.0.0.0\n" + \
+		"\t\tinet6 ::1  prefixlen 128  scopeid 0x10<host>\n" + \
+		"\t\tloop  txqueuelen 1000  (Local Loopback)\n" + \
+		"\t\tRX packets 593151873  bytes 168017963250 (168.0 GB)\n" + \
+		"\t\tRX errors 0  dropped 0  overruns 0  frame 0\n" + \
+		"\t\tTX packets 593151873  bytes 168017963250 (168.0 GB)\n" + \
+		"\t\tTX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\n\n" + \
+"vxlan.calico: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1450\n" + \
+		"\t\tinet 10.0.0.4  netmask 255.255.255.255  broadcast 0.0.0.0\n" + \
+		"\t\tinet6 fe80::64f5:3dff:fe2e:2ea1  prefixlen 64  scopeid 0x20<link>\n" + \
+		"\t\tether 66:f5:3d:2e:2e:a1  txqueuelen 0  (Ethernet)\n" + \
+		"\t\tRX packets 0  bytes 0 (0.0 B)\n" + \
+		"\t\tRX errors 0  dropped 0  overruns 0  frame 0\n" + \
+		"\t\tTX packets 0  bytes 0 (0.0 B)\n" + \
+		"\t\tTX errors 0  dropped 6141 overruns 0  carrier 0  collisions 0" }
 #func _init(command):
 #	self.command_list = command_list
 #	self.validate_command(command)

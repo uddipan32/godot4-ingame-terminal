@@ -8,7 +8,7 @@ onready var console_input_node = $ConsoleInput
 const command_handler = preload("./CommandHandler.gd")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.write_line("Welcome InGame Terminal \nType [color=#ffff66] [url=help]help[/url][/color] to get more information")
+	self.write_line("Welcome to InGame Terminal \nType [color=#ffff66] [url=help]help[/url][/color] to get more information")
 	resize()
 
 func _process(delta):
@@ -40,7 +40,7 @@ func resize():
 	if box.get_rect().size.y < height:
 		height = box.size_flags_vertical + box.get_parent().offset.y + 75
 		#print(height)
-	console_input_node.set_position(Vector2(0,height-15))
+	console_input_node.set_position(Vector2(10,height-15))
 	#text_node.rect_min_size.y = height
 	#text_node.rect_max_size.y = height
 
@@ -48,7 +48,7 @@ func resize():
 
 
 func _on_ConsoleInput_text_entered(input):
-	self.write_line('[color=#999999]$[/color] ' + input)
+	self.write_line('[color=#00ff00]$[/color] ' + input)
 	var handler = command_handler.new()
 	self.write(handler.validate_command(input))
 	#self.write_line(new_text)
