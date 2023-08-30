@@ -45,3 +45,7 @@ func resize():
 	#text_node.rect_max_size.y = height
 
 
+
+
+func _on_ConsoleInput_text_entered(new_text):
+	self.write_line(new_text)

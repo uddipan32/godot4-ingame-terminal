@@ -45,3 +45,5 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 size_flags_horizontal = 3
 script = ExtResource( 2 )
+
+[connection signal="text_entered" from="ConsoleBox/Container/ConsoleInput" to="ConsoleBox/Container" method="_on_ConsoleInput_text_entered"]
