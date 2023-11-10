@@ -6,6 +6,8 @@ extends EditorPlugin
 const PLUGIN_NAME = 'Console'
 const PLUGIN_PATH = 'res://addons/godot4-ingame-terminal/src/Console.tscn'
 
+
+var dock 
 #const ACTIONS = [
 #	Actions.console_toggle_props,
 #	Actions.console_autocomplete_props,
@@ -15,8 +17,15 @@ const PLUGIN_PATH = 'res://addons/godot4-ingame-terminal/src/Console.tscn'
 
 
 func _enter_tree():
-	self.add_autoload_singleton(PLUGIN_NAME, PLUGIN_PATH)
+	dock = preload("res://addons/godot4-ingame-terminal/src/Console.tscn").instantiate()
+	
+	add_control_to_dock(DOCK_SLOT_LEFT_UL, dock)
+	
+	#self.add_custom_type("Console", PLUGIN_NAME, preload("res://addons/godot4-ingame-terminal/src/Console.gd"), preload("res://icon.png"))
+	#self.add_autoload_singleton(PLUGIN_NAME, PLUGIN_PATH)
 	
 
 func _exit_tree():
-	self.remove_autoload_singleton(PLUGIN_NAME)
+	remove_control_from_docks(dock)
+	#self.remove_custom_type(PLUGIN_NAME)
+	#self.remove_autoload_singleton(PLUGIN_NAME)

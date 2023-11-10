@@ -1,15 +1,17 @@
+@tool
 extends LineEdit
 
-const Actions = preload('../Actions.gd')
+const Actions = preload("res://addons/godot4-ingame-terminal/Actions.gd")
+
 # @var  String
 var _current_command
 
-func _ready():
-	self.grab_focus()
+#func _ready():
+#	self.grab_focus()
 	# Console keyboard control
-	self.set_process_input(true)
+#	self.set_process_input(true)
 
-	self.connect('text_submitted', Callable(self, 'execute'))
+#	self.connect('text_submitted', Callable(self, 'execute'))
 
 
 # @param  InputEvent

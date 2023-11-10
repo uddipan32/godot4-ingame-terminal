@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://q0uvtbc72n6b"]
 
-[ext_resource type="Script" path="res://addons/godot4-ingame-terminal/src/Console.gd" id="1_tjiub"]
 [ext_resource type="Script" path="res://addons/godot4-ingame-terminal/src/Container.gd" id="2_anv7s"]
 [ext_resource type="Script" path="res://addons/godot4-ingame-terminal/src/ConsoleInput.gd" id="3_5rl41"]
+[ext_resource type="Theme" uid="uid://c3trw12arjov8" path="res://addons/godot4-ingame-terminal/assets/themes/ingame_terminal_theme.tres" id="4_bdpky"]
 
 [sub_resource type="StyleBoxEmpty" id="1"]
 
@@ -15,7 +15,6 @@ process_mode = 3
 layer = 128
 offset = Vector2(0, 200)
 transform = Transform2D(1, 0, 0, 1, 0, 200)
-script = ExtResource("1_tjiub")
 
 [node name="ConsoleBox" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0.8)
@@ -27,12 +26,16 @@ offset_bottom = -27.058
 mouse_filter = 2
 
 [node name="Container" type="VBoxContainer" parent="ConsoleBox"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = 12.0
-offset_right = -12.0
+offset_left = 13.0
+offset_top = 5.058
+offset_right = -11.0
+offset_bottom = -6.94202
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1, 0.997045)
 mouse_filter = 2
 script = ExtResource("2_anv7s")
@@ -41,19 +44,21 @@ script = ExtResource("2_anv7s")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("4_bdpky")
 theme_override_constants/line_separation = 4
 bbcode_enabled = true
 scroll_following = true
 
 [node name="ConsoleInput" type="LineEdit" parent="ConsoleBox/Container"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
-size_flags_horizontal = 3
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
+theme = ExtResource("4_bdpky")
 theme_override_styles/normal = SubResource("1")
 theme_override_styles/focus = SubResource("3")
 theme_override_styles/read_only = SubResource("2")
@@ -65,10 +70,12 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -7.0
-offset_right = -2.0
-offset_bottom = 7.0
+offset_left = -11.0
+offset_top = -18.185
+offset_right = 3.0
+offset_bottom = 18.815
+grow_vertical = 2
+theme = ExtResource("4_bdpky")
 text = "$"
 
 [connection signal="text_submitted" from="ConsoleBox/Container/ConsoleInput" to="ConsoleBox/Container" method="_on_ConsoleInput_text_entered"]

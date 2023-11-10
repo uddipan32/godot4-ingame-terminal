@@ -1,14 +1,21 @@
+@tool
 extends VBoxContainer
 @onready var text_node = $ConsoleText
 @onready var console_input_node = $ConsoleInput
+@onready var prefix_symbol = $ConsoleInput/Label
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# ==== EXPORT ====
+@export var font_size = 24
 
+# ==== IMPORT ====
 const command_handler = preload("./CommandHandler.gd")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#text_node.push_font_size(font_size)
+	#prefix_symbol.add_theme_font_size_override("ingame_terminal_theme", 200)
+	#console_input_node.add_theme_font_size_override(font_size)
+	
 	self.write_line("Welcome to InGame Terminal \nType [color=#ffff66] [url=help]help[/url][/color] to get more information")
 	resize()
 
@@ -37,7 +44,7 @@ func clear():
 #func _process(delta):
 #	pass
 func resize():
-	var height = text_node.get_content_height()
+	var height = text_node.get_content_height() + 10
 	var box = get_parent()
 	if box.get_rect().size.y < height:
 		height = box.size_flags_vertical + box.get_parent().offset.y + 75
