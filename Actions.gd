@@ -1,5 +1,3 @@
-
-
 const CONSOLE_TOGGLE = "console_toggle"
 const console_toggle_props = {
 	"name": CONSOLE_TOGGLE,

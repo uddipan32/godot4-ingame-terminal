@@ -17,15 +17,19 @@ var dock
 
 
 func _enter_tree():
-	dock = preload("res://addons/godot4-ingame-terminal/src/Console.tscn").instantiate()
 	
-	add_control_to_dock(DOCK_SLOT_LEFT_UL, dock)
+	#dock = preload("res://addons/godot4-ingame-terminal/src/Console.gd").new()
+	#add_inspector_plugin(dock)
 	
-	#self.add_custom_type("Console", PLUGIN_NAME, preload("res://addons/godot4-ingame-terminal/src/Console.gd"), preload("res://icon.png"))
+	#dock = preload("res://addons/godot4-ingame-terminal/src/Console.tscn").instantiate()
+	#add_control_to_dock(DOCK_SLOT_LEFT_UL, dock)
+	
+	self.add_custom_type("Console", 'Control', preload("res://addons/godot4-ingame-terminal/src/Console.gd"), preload("res://icon.svg"))
 	#self.add_autoload_singleton(PLUGIN_NAME, PLUGIN_PATH)
 	
 
 func _exit_tree():
-	remove_control_from_docks(dock)
-	#self.remove_custom_type(PLUGIN_NAME)
+	#remove_inspector_plugin(dock)
+	#remove_control_from_docks(dock)
+	self.remove_custom_type('Console')
 	#self.remove_autoload_singleton(PLUGIN_NAME)

@@ -10,22 +10,16 @@
 
 [sub_resource type="StyleBoxEmpty" id="2"]
 
-[node name="Console" type="CanvasLayer"]
+[node name="Console" type="Control"]
 process_mode = 3
-layer = 128
-offset = Vector2(0, 200)
-transform = Transform2D(1, 0, 0, 1, 0, 200)
-
-[node name="ConsoleBox" type="Panel" parent="."]
-self_modulate = Color(1, 1, 1, 0.8)
-anchors_preset = -1
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -27.058
-offset_bottom = -27.058
-mouse_filter = 2
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Container" type="VBoxContainer" parent="ConsoleBox"]
+[node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,20 +30,19 @@ offset_right = -11.0
 offset_bottom = -6.94202
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 0.997045)
+scale = Vector2(1.00456, 0.954519)
 mouse_filter = 2
 script = ExtResource("2_anv7s")
 
-[node name="ConsoleText" type="RichTextLabel" parent="ConsoleBox/Container"]
+[node name="ConsoleText" type="RichTextLabel" parent="Container"]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("4_bdpky")
 theme_override_constants/line_separation = 4
 bbcode_enabled = true
 scroll_following = true
 
-[node name="ConsoleInput" type="LineEdit" parent="ConsoleBox/Container"]
+[node name="ConsoleInput" type="LineEdit" parent="Container"]
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -65,7 +58,7 @@ theme_override_styles/read_only = SubResource("2")
 caret_blink = true
 script = ExtResource("3_5rl41")
 
-[node name="Label" type="Label" parent="ConsoleBox/Container/ConsoleInput"]
+[node name="Label" type="Label" parent="Container/ConsoleInput"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -78,4 +71,15 @@ grow_vertical = 2
 theme = ExtResource("4_bdpky")
 text = "$"
 
-[connection signal="text_submitted" from="ConsoleBox/Container/ConsoleInput" to="ConsoleBox/Container" method="_on_ConsoleInput_text_entered"]
+[node name="ConsoleBox" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.8)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="text_submitted" from="Container/ConsoleInput" to="Container" method="_on_ConsoleInput_text_entered"]

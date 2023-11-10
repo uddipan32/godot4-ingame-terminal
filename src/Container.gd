@@ -1,4 +1,3 @@
-@tool
 extends VBoxContainer
 @onready var text_node = $ConsoleText
 @onready var console_input_node = $ConsoleInput
@@ -47,7 +46,8 @@ func resize():
 	var height = text_node.get_content_height() + 10
 	var box = get_parent()
 	if box.get_rect().size.y < height:
-		height = box.size_flags_vertical + box.get_parent().offset.y + 75
+		height  = box.get_rect().size.y - 40
+		#height = box.size_flags_vertical + box.get_parent().offset.y + 750
 		#print(height)
 	console_input_node.set_position(Vector2(10,height-15))
 	#text_node.rect_min_size.y = height
