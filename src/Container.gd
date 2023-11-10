@@ -1,6 +1,7 @@
 extends VBoxContainer
-onready var text_node = $ConsoleText
-onready var console_input_node = $ConsoleInput
+@onready var text_node = $ConsoleText
+@onready var console_input_node = $ConsoleInput
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -18,13 +19,14 @@ func _process(delta):
 func write(message):
 	message = str(message)
 	if self.text_node:
-		self.text_node.append_bbcode(message)
+		self.text_node.append_text(message)
 
 # print new line
 func write_line(message = ''):
 	message = str(message)
+	#text_node.append_text()
 	if self.text_node:
-		self.text_node.append_bbcode(message + '\n')
+		self.text_node.append_text(message + '\n')
 	
 # clear terminal
 func clear():
@@ -44,11 +46,8 @@ func resize():
 	#text_node.rect_min_size.y = height
 	#text_node.rect_max_size.y = height
 
-
-
-
 func _on_ConsoleInput_text_entered(input):
-	self.write_line('[color=#00ff00]$[/color] ' + input)
+	self.write_line('[color=#00ff00]$[/color] ' + input)  # print input command
 	var handler = command_handler.new()
-	self.write(handler.validate_command(input))
-	#self.write_line(new_text)
+	self.write(handler.validate_command(input)) # validate command
+	# self.write_line(new_text)

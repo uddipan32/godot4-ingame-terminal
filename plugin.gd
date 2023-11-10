@@ -1,10 +1,10 @@
-tool
+@tool
 extends EditorPlugin
 
 #const Actions = preload("./Actions.gd")
 
 const PLUGIN_NAME = 'Console'
-const PLUGIN_PATH = 'res://addons/godot3-ingame-terminal/src/Console.tscn'
+const PLUGIN_PATH = 'res://addons/godot4-ingame-terminal/src/Console.tscn'
 
 #const ACTIONS = [
 #	Actions.console_toggle_props,
@@ -15,7 +15,6 @@ const PLUGIN_PATH = 'res://addons/godot3-ingame-terminal/src/Console.tscn'
 
 
 func _enter_tree():
-	print("ENTER TREE")
 	self.add_autoload_singleton(PLUGIN_NAME, PLUGIN_PATH)
 	
 

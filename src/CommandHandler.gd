@@ -1,5 +1,5 @@
 class_name CommandHandler
-extends Reference
+extends RefCounted
 
 var command_list = ["ifconfig", "ls", "pwd"]
 var command_json = {

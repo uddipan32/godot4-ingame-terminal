@@ -9,13 +9,13 @@ func _ready():
 	# Console keyboard control
 	self.set_process_input(true)
 
-	self.connect('text_entered', self, 'execute')
+	self.connect('text_submitted', Callable(self, 'execute'))
 
 
 # @param  InputEvent
-func _gui_input(event):
-	if Console.consume_input and self.has_focus():
-		accept_event()
+#func _gui_input(event):
+#	if Console.consume_input and self.has_focus():
+#		accept_event()
 
 
 # @param  InputEvent  e
