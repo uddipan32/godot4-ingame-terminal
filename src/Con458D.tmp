@@ -19,7 +19,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v3f51")
-prefix = null
 
 [node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -43,13 +42,8 @@ theme_override_constants/line_separation = 4
 bbcode_enabled = true
 scroll_following = true
 
-[node name="Label" type="Label" parent="Container"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("4_bdpky")
-text = "$"
-
 [node name="ConsoleInput" type="LineEdit" parent="Container"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
@@ -63,6 +57,19 @@ theme_override_styles/focus = SubResource("3")
 theme_override_styles/read_only = SubResource("2")
 caret_blink = true
 script = ExtResource("3_5rl41")
+
+[node name="Label" type="Label" parent="Container/ConsoleInput"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -18.185
+offset_right = 3.0
+offset_bottom = 18.815
+grow_vertical = 2
+theme = ExtResource("4_bdpky")
+text = "$"
 
 [node name="ConsoleBox" type="Panel" parent="."]
 visible = false
