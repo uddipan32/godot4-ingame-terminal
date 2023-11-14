@@ -8,6 +8,7 @@ extends Control
 # ==== EXPORT ====
 @export var welcome_message: String = "Welcome to InGame Terminal \nType [color=#ffff66] [url=help]help[/url][/color] to get more information"
 @export var prefix: String = "$/hello/>"
+@export var prefix_color: Color = Color.WHITE
 
 # ==== IMPORT ====
 const command_handler = preload("./CommandHandler.gd")
@@ -19,7 +20,10 @@ func _ready():
 	#prefix_symbol.add_theme_font_size_override("ingame_terminal_theme", 200)
 	#console_input_node.add_theme_font_size_override(font_size)
 	
+	
 	prefix_symbol.text = prefix
+	get_node("Container/Label").set("theme_override_colors/font_color", prefix_color) 
+	
 	
 	self.write_line(welcome_message)
 	resize()
@@ -61,7 +65,7 @@ func resize():
 	#text_node.rect_max_size.y = height
 
 func _on_console_input_text_submitted(input):
-	self.write_line('[color=#00ff00]' + prefix + '[/color] ' + input)  # print input command
+	self.write_line('[color=#'+ prefix_color.to_html() +']' + prefix + '[/color] ' + input)  # print input command
 	var handler = command_handler.new()
 	self.write(handler.validate_command(input)) # validate command
 	# self.write_line(new_text)
