@@ -23,7 +23,7 @@ func _enter_tree():
 	#dock = preload("res://addons/godot4-ingame-terminal/src/Console.tscn").instantiate()
 	#add_control_to_dock(DOCK_SLOT_LEFT_UL, dock)
 	
-	self.add_custom_type("Console", 'Control', preload("res://addons/godot4-ingame-terminal/src/Console.gd"), preload("res://icon.png"))
+	self.add_custom_type("Console", 'Control', preload("res://addons/godot4-ingame-terminal/src/Console.gd"), preload("res://addons/godot4-ingame-terminal/icon.png"))
 	#self.add_autoload_singleton(PLUGIN_NAME, PLUGIN_PATH)
 	
 
