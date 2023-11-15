@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://q0uvtbc72n6b"]
 
-[ext_resource type="Script" path="res://addons/godot4-ingame-terminal/src/Main.gd" id="1_v3f51"]
+[ext_resource type="Script" path="res://addons/godot4-ingame-terminal/src/scripts/Main.gd" id="1_2e7fp"]
 [ext_resource type="Script" path="res://addons/godot4-ingame-terminal/src/ConsoleInput.gd" id="3_5rl41"]
 [ext_resource type="Theme" uid="uid://c3trw12arjov8" path="res://addons/godot4-ingame-terminal/assets/themes/ingame_terminal_theme.tres" id="4_bdpky"]
 
@@ -18,9 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_v3f51")
-welcome_message = "Welcome to InGame Terminal 
-Type [color=#ffff66] [url=help]help[/url][/color] to get more information"
+script = ExtResource("1_2e7fp")
 
 [node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -49,7 +47,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("4_bdpky")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "$/hello/>"
+text = "$"
 
 [node name="ConsoleInput" type="LineEdit" parent="Container"]
 layout_mode = 2

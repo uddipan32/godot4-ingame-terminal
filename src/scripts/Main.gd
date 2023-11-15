@@ -7,8 +7,9 @@ extends Control
 
 # ==== EXPORT ====
 @export var welcome_message: String = "Welcome to NAPD Terminal \nType [color=#ffff66] [url=help]help[/url][/color] to get more information\n"
-@export var prefix: String = "$/hello/>"
+@export var prefix: String = "$"
 @export var prefix_color: Color = Color.WHITE
+@export var readonly: bool = true
 
 # ==== IMPORT ====
 const command_handler = preload("./CommandHandler.gd")
@@ -20,11 +21,16 @@ func _ready():
 	#prefix_symbol.add_theme_font_size_override("ingame_terminal_theme", 200)
 	#console_input_node.add_theme_font_size_override(font_size)
 	
+	if readonly:
+		prefix_symbol.visible = false
+		console_input_node.visible = false
+	else:
+		prefix_symbol.visible = true
+		console_input_node.visible = true
+		get_node("Container/Label").set("theme_override_colors/font_color", prefix_color) 
+	
 	
 	prefix_symbol.text = prefix
-	get_node("Container/Label").set("theme_override_colors/font_color", prefix_color) 
-	
-	
 	self.write_line(welcome_message)
 	resize()
 
