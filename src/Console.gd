@@ -21,10 +21,8 @@ func _ready():
 		viewport.prefix = "$"
 		viewport.prefix_color = Color.AQUA 
 		add_child(viewport)
-		viewport.set("welcome_message", "Hello")
-		print(viewport.get("welcome_message"))
-		viewport.write("How are you")
-		viewport.write("How are you")
+		#viewport.set("welcome_message", "Hello")
+		
 		
 		#print(get_node("Console/Container").welcome_message)
 		#get_node("Console/Container").welcome_message = "hello"

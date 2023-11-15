@@ -6,7 +6,7 @@ extends Control
 @onready var prefix_symbol = $Container/Label
 
 # ==== EXPORT ====
-@export var welcome_message: String = "Welcome to InGame Terminal \nType [color=#ffff66] [url=help]help[/url][/color] to get more information"
+@export var welcome_message: String = "Welcome to NAPD Terminal \nType [color=#ffff66] [url=help]help[/url][/color] to get more information\n"
 @export var prefix: String = "$/hello/>"
 @export var prefix_color: Color = Color.WHITE
 
@@ -55,7 +55,8 @@ func clear():
 func resize():
 	var height = text_node.get_content_height() + 10
 	var box = get_parent()
-	if box.get_rect().size.y < height:
+	#print(box.size)
+	if box.size.y < height:
 		height  = box.get_rect().size.x - 40
 		#height = box.size_flags_vertical + box.get_parent().offset.y + 750
 		#print(height)

@@ -19,7 +19,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v3f51")
-prefix_color = null
+welcome_message = "Welcome to InGame Terminal 
+Type [color=#ffff66] [url=help]help[/url][/color] to get more information"
 
 [node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 1
