@@ -1,4 +1,4 @@
-class_name CommandHandler
+#class_name CommandHandler
 extends RefCounted
 
 var command_list = ["ifconfig", "ls", "pwd"]

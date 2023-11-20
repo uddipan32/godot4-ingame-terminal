@@ -43,6 +43,7 @@ bbcode_enabled = true
 scroll_following = true
 
 [node name="Label" type="Label" parent="Container"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("4_bdpky")
@@ -50,6 +51,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "$"
 
 [node name="ConsoleInput" type="LineEdit" parent="Container"]
+visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")

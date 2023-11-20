@@ -5,7 +5,7 @@ extends Control
 @onready var console_input_node = $Container/ConsoleInput
 @onready var prefix_symbol = $Container/Label
 
-# ==== EXPORT ====
+## ==== EXPORT ====
 @export var welcome_message: String = "Welcome to NAPD Terminal \nType [color=#ffff66] [url=help]help[/url][/color] to get more information\n"
 @export var prefix: String = "$"
 @export var prefix_color: Color = Color.WHITE

@@ -10,6 +10,9 @@ var viewport: Control = preload("../Console.tscn").instantiate()
 @export var prefix_color: Color = Color.WHITE
 @export var readonly: bool = true
 
+
+var status = "IDLE"
+
 # @var  bool
 #var consume_input = true
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +31,8 @@ func _ready():
 		#print(get_node("Console/Container").welcome_message)
 		#get_node("Console/Container").welcome_message = "hello"
 
+func get_status():
+	return status
 
 # append string
 func write(text):
@@ -38,6 +43,7 @@ func print_with_typing_effect(text: String, interval: float):
 	text = str(text)
 	var store_temp_text = false
 	var temp_text = ""
+	status = "RUNNING"
 	for char in text:
 		if char == "[":
 			store_temp_text = true
@@ -51,23 +57,5 @@ func print_with_typing_effect(text: String, interval: float):
 			print(temp_text)
 			viewport.write(temp_text)
 			temp_text = ""
-		
-		
-		
-			
-		# Print one character at a time
-		
-		
-		# Adjust the delay as needed for your desired speed
-		#await(get_tree().create_timer(0.05), "timeout")
-		await get_tree().create_timer(interval).timeout
-		#print()  # Move to the next line after printing the whole text
-	#_viewport.welcome
-	#add_child(_viewport)
-	
-	#_viewport.render_target_update_mode = Viewport.UPDATE_ALWAYS
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+		await get_tree().create_timer(interval).timeout			
+	status = "STOPPED"	
